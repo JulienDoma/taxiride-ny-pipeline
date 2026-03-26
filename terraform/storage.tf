@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "data_bucket" {
-  name     = "${var.project_id}-${var.environment}-terraform-data"
+  name     = "${var.bucket_taxi}"
   location = "us-east1"
 
   force_destroy = true
