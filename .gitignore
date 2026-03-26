@@ -217,3 +217,9 @@ __marimo__/
 
 # Terraform
 .terraform/
+
+# Raw data
+data/
+
+# GCP SA
+gcp/
