@@ -48,7 +48,6 @@ Notes
   dataset host.
 """
 
-
 import os
 import time
 import argparse
@@ -158,13 +157,13 @@ def download_file(links: List[str], year: str):
     client = storage.Client().from_service_account_json(
         json_credentials_path="gcp/bucket-owner.json"
     )
-    
+
     # Define which bucket to use
     bucket = client.bucket(BUCKET_NAME)
 
     # For loop applied to all files not already downloaded
     for link in links:
-        
+
         # Get file name and path from data folder
         filename = link.split("/")[-1]
         full_path = os.path.join(raw_path, filename)
@@ -184,7 +183,7 @@ def download_file(links: List[str], year: str):
         blob.upload_from_filename(full_path)
         print(f"Uploaded to gs://{BUCKET_NAME}/{destination_path}")
 
-        time.sleep(5) # don't overflow NYC website
+        time.sleep(5)  # don't overflow NYC website
 
 
 def main():
