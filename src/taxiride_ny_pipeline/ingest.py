@@ -28,7 +28,7 @@ parameter:
 
     python <script_name>.py --year 2024
 
-If no year is provided, the default value is used.
+If no year is provided, the default value is used, which is N-1.
 
 Dependencies
 ------------
@@ -52,6 +52,7 @@ Notes
 import os
 import time
 import argparse
+from datetime import datetime
 from typing import List
 
 import requests
@@ -202,7 +203,7 @@ def main():
     Notes
     -----
     - The year can be provided through the CLI using the `--year` argument.
-    - If no year is specified, the default value is used.
+    - If no year is specified, the default value is used (N-1).
     - The function orchestrates two main steps:
     1. Retrieve dataset links filtered by year.
     2. Download datasets and upload them to the configured GCS bucket.
@@ -212,7 +213,7 @@ def main():
     parser.add_argument(
         "--year",
         dest="year",
-        default="2024",
+        default=str(datetime.today().year - 1),
         help="Choose a year between 2009 and 2025",
     )
     args, _ = parser.parse_known_args()
