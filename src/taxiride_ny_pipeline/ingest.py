@@ -206,7 +206,7 @@ def main():
     - The function orchestrates two main steps:
     1. Retrieve dataset links filtered by year.
     2. Download datasets and upload them to the configured GCS bucket.
-    - The expected valid range for datasets is between 2009 and 2025.
+    - The expected valid range for datasets is between 2009 and 2026.
     """
     parser = argparse.ArgumentParser()
     parser.add_argument(
