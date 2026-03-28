@@ -153,7 +153,7 @@ def download_file(links: List[str], year: str):
     raw_path = f"data/raw/{year}/"
     os.makedirs(raw_path, exist_ok=True)
 
-    # Initialize GCS client from gcp folder file (linked to the terraform service account - respecting PLP)
+    # Initialize GCS client from gcp folder file (linked to the terraform service account - respecting PoLP)
     client = storage.Client().from_service_account_json(
         json_credentials_path="gcp/bucket-access.json"
     )
