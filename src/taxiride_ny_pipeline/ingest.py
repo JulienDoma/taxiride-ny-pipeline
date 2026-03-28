@@ -26,9 +26,9 @@ Command-Line Usage
 The module can be executed from the command line with an optional year
 parameter:
 
-    python <script_name>.py --year 2024
+    python <script_name>.py --year 2026
 
-If no year is provided, the default value is used, which is N-1.
+If no year is provided, the default value is used, which is N.
 
 Dependencies
 ------------
@@ -77,7 +77,7 @@ def get_dataset_links(year: str):
     Parameters
     ----------
     year : str
-        Year used to filter the dataset links (e.g., "2024").
+        Year used to filter the dataset links (e.g., "2026").
 
     Returns
     -------
@@ -202,7 +202,7 @@ def main():
     Notes
     -----
     - The year can be provided through the CLI using the `--year` argument.
-    - If no year is specified, the default value is used (N-1).
+    - If no year is specified, the default value is used (N).
     - The function orchestrates two main steps:
     1. Retrieve dataset links filtered by year.
     2. Download datasets and upload them to the configured GCS bucket.
@@ -212,8 +212,8 @@ def main():
     parser.add_argument(
         "--year",
         dest="year",
-        default=str(datetime.today().year - 1),
-        help="Choose a year between 2009 and 2025",
+        default=str(datetime.today().year),
+        help="Choose a year between 2009 and 2026",
     )
     args, _ = parser.parse_known_args()
 
