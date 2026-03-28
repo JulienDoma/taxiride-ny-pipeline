@@ -108,7 +108,7 @@ def get_dataset_links(year: str):
 
     # Get list of existing files in GCS
     client = storage.Client().from_service_account_json(
-        json_credentials_path="gcp/bucket-owner.json"
+        json_credentials_path="gcp/bucket-access.json"
     )
     prefix = f"raw/yellow/year={year}/"
     bucket = client.bucket(BUCKET_NAME)
@@ -155,7 +155,7 @@ def download_file(links: List[str], year: str):
 
     # Initialize GCS client from gcp folder file (linked to the terraform service account - respecting PLP)
     client = storage.Client().from_service_account_json(
-        json_credentials_path="gcp/bucket-owner.json"
+        json_credentials_path="gcp/bucket-access.json"
     )
 
     # Define which bucket to use
